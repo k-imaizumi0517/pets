@@ -6,7 +6,7 @@
 |------|----|-------|
 |nickname|string|null: false|
 |introduction|text|
-|prefecture_id|references|null: false, foreign_key: true|
+|prefecture_id|references|foreign_key: true|
 |email|string|null: false, unique: true|
 |password|string|null: false|
 |image|string|
