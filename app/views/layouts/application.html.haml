@@ -7,4 +7,15 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+
+    %nav.site-header.sticky-top.py-1
+      .container.d-flex.flex-column.flex-md-row.justify-content-between
+        = link_to "Tour", "#", class: "py-2"
+        = link_to "Product", "#", class: "py-2"
+        = link_to "Features", "#", class: "py-2"
+        = link_to "Enterprise", "#", class: "py-2"
+        = link_to "Support", "#", class: "py-2"
+        = link_to "Pricing", "#", class: "py-2"
+        = link_to "Cart", "#", class: "py-2"
+
     = yield
