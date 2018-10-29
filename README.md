@@ -12,7 +12,7 @@
 |image|string|
 
 ### Association
-- has_many :pets, dependent: :destroy
+- has_many :dogs, dependent: :destroy
 - has_many :posts, dependent: :destroy
 - has_many :comments, dependent: :destroy
 - belongs_to :prefecture
@@ -39,7 +39,7 @@
 |name|string|null: false|
 
 ### Association
-- has_many :pets
+- has_many :dogs
 
 ## imagesテーブル
 
