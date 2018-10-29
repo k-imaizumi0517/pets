@@ -6,7 +6,7 @@
 |------|----|-------|
 |nickname|string|null: false|
 |introduction|text|
-|prefecture_id|references|foreign_key: true|
+|prefecture_id|integer|
 |email|string|null: false, unique: true|
 |password|string|null: false|
 |image|string|
@@ -91,7 +91,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
+|name|string|
 
 ### Association
 - has_many :users
