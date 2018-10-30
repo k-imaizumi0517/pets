@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :dogs, dependent: :destroy
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
-  belongs_to :prefecture
+  belongs_to :prefecture, optional: true
 
   validates :nickname, presence: true
 end
