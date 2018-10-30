@@ -29,6 +29,8 @@
               = link_to "Action", "#", class: "dropdown-item"
               = link_to "Another action", "#", class: "dropdown-item"
               = link_to "Something else here", "#", class: "dropdown-item"
+          %li.nav-item
+            = link_to "Sign Out", destroy_user_session_path, class: "nav-link", method: :delete
         %form.form-inline.my-2.my-lg-0
           %input.form-control.mr-sm-2{"aria-label" => "Search", :placeholder => "Search", :type => "text"}/
           %button.btn.btn-outline-success.my-2.my-sm-0{:type => "submit"} Search
