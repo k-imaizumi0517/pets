@@ -1,17 +1,17 @@
-%h2 投稿する
+.text-center
+  = form_for @post, :html => {:class => "form-signin"} do |f|
+    %h1.h3.mb-3.font-weight-normal 投稿する
+    .form-group
+      = f.label :title
+      = f.text_field :title, autofocus: true, class: 'form-control', placeholder: "例)食欲がない"
 
-= form_for @post do |f|
+    .form-group
+      = f.label :text
+      = f.text_area :text, rows: "5", class: 'form-control', placeholder: "例)15歳の犬の食欲が昨日からありません。どうしたら良いでしょうか？"
 
-  .form-group
-    = f.label :title
-    = f.text_field :title, autofocus: true, class: 'form-control', placeholder: "例)食欲がない"
+    .form-group
+      = f.label :category_id, "Category"
+      = f.collection_select :category_id, Category.all, :id, :name, {prompt: "category"}, {class: 'form-control'}
 
-  .form-group
-    = f.label :text
-    = f.text_area :text, class: 'form-control', placeholder: "例)15歳の犬の食欲が昨日からありません。どうしたら良いでしょうか？"
+    = f.submit "投稿する", class: 'btn btn-lg btn-primary btn-block'
 
-  .form-group
-    = f.label :category_id, "Category"
-    = f.collection_select :category_id, Category.all, :id, :name, {prompt: "category"}, {class: 'form-control'}
-
-  = f.submit "投稿する", class: 'btn btn-primary'
