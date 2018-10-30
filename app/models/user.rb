@@ -10,4 +10,5 @@ class User < ApplicationRecord
   belongs_to :prefecture, optional: true
 
   validates :nickname, presence: true
+  mount_uploader :image, ImageUploader
 end
