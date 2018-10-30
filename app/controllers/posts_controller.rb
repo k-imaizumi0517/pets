@@ -24,5 +24,4 @@ class PostsController < ApplicationController
 
   private
 
-  end
 end
