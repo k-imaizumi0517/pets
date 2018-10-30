@@ -44,13 +44,15 @@ ActiveRecord::Schema.define(version: 20181030060000) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "prefecture_id"
     t.text "introduction"
-    t.integer "prefecture_id"
     t.string "image"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["prefecture_id"], name: "index_users_on_prefecture_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "posts", "categories"
   add_foreign_key "posts", "users"
+  add_foreign_key "users", "prefectures"
 end
