@@ -3,5 +3,7 @@
 body {
   padding-top: 3.5rem;
 }
+@import "config/colors";
+@import "modules/flash";
 @import "devise";
 @import "posts";
