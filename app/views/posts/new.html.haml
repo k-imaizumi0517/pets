@@ -1,5 +1,12 @@
 .text-center
   = form_for @post, :html => {:class => "form-signin"} do |f|
+    - if @post.errors.any?
+      .form-group
+        %h2= "#{@post.errors.full_messages.count}件のエラーが発生しました。"
+        %ul
+          - @post.errors.full_messages.each do |message|
+            %li= message
+
     %h1.h3.mb-3.font-weight-normal 投稿する
     .form-group
       = f.label :title
