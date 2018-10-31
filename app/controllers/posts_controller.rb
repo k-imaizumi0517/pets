@@ -11,6 +11,12 @@ class PostsController < ApplicationController
   end
 
   def create
+    @post = Post.new(post_params)
+    if @post.save
+      redirect_to root_path, notice: '投稿しました'
+    else
+      render :new
+    end
   end
 
   def edit
@@ -23,5 +29,9 @@ class PostsController < ApplicationController
   end
 
   private
+
+  def post_params
+    params.require(:post).permit(:title, :text, :category_id).merge(user_id: current_user.id)
+  end
 
 end
