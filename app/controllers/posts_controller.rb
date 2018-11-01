@@ -2,6 +2,10 @@ class PostsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
 
   def index
+    @new_posts = Post.order("created_at DESC").limit(3)
+    @c1_posts = Post.where(category_id: 1).order("created_at DESC").limit(3)
+    @c2_posts = Post.where(category_id: 2).order("created_at DESC").limit(3)
+    @c3_posts = Post.where(category_id: 3).order("created_at DESC").limit(3)
   end
 
   def show

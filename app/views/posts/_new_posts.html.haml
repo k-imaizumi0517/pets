@@ -1,0 +1,7 @@
+.col-md-4
+  %h2
+    = new_posts.title
+  %p
+    = new_posts.text
+  %p
+    = link_to "詳細へ &raquo;".html_safe, "#", class: "btn btn-secondary", role: "button"
