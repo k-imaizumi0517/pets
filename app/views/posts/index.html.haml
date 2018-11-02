@@ -7,43 +7,30 @@
       %p
         %a.btn.btn-primary.btn-lg{:href => "#", :role => "button"} Learn more »
 
-  .container
-    %h1 New
-    .row
-      - if @new_posts.presence
-        = render partial: "new_posts", collection: @new_posts
-        / = render @new_posts
-      - else
-        %p 現在投稿はありません
-    %hr/
+  .album.py-5
+    .container
 
-  .container
-    %h1 病気
-    .row
-      - if @c1_posts.presence
-        = render partial: "c1_posts", collection: @c1_posts
-        / = render @new_posts
-      - else
-        %p 現在投稿はありません
-    %hr/
-
-  .container
-    %h1 しつけ
-    .row
-      - if @c2_posts.presence
-        = render partial: "c2_posts", collection: @c2_posts
-        / = render @new_posts
-      - else
-        %p 現在投稿はありません
-    %hr/
-
-  .container
-    %h1 病院
-    .row
-      - if @c3_posts.presence
-        = render partial: "c3_posts", collection: @c3_posts
-        / = render @new_posts
-      - else
-        %p 現在投稿はありません
-    %hr/
-
+      %h2 New
+      .row
+        - if @new_posts.presence
+          = render partial: "index", collection: @new_posts, as: "posts"
+        - else
+          %p 現在投稿はありません
+      %h2 病気
+      .row
+        - if @c1_posts.presence
+          = render partial: "index", collection: @c1_posts, as: "posts"
+        - else
+          %p 現在投稿はありません
+      %h2 しつけ
+      .row
+        - if @c2_posts.presence
+          = render partial: "index", collection: @c2_posts, as: "posts"
+        - else
+          %p 現在投稿はありません
+      %h2 病院
+      .row
+        - if @c3_posts.presence
+          = render partial: "index", collection: @c3_posts, as: "posts"
+        - else
+          %p 現在投稿はありません

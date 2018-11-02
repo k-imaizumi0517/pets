@@ -1,6 +1,0 @@
-.col-md-4
-  %h2
-    = c1_posts.title
-  %p= simple_format(truncate(c1_posts.text, length: 80))
-  %p
-    = link_to "詳細へ &raquo;".html_safe, "#", class: "btn btn-secondary", role: "button"
