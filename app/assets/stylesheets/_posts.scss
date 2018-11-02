@@ -1,4 +1,18 @@
-/*index.html.haml*/
+// index.html.haml
+.jumbotron {
+  background-color: #fff;
+}
+
+.album {
+  background-color: #e9ecef;
+  .card-text {
+    height: 200px;
+  }
+}
+
+
+
+/*new.html.haml*/
 
 .form-signin {
   width: 100%;
