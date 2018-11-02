@@ -1,16 +1,19 @@
 // index.html.haml
 .jumbotron {
+  margin-bottom: 0;
   background-color: #fff;
 }
 
 .album {
-  background-color: #e9ecef;
-  .card-text {
-    height: 200px;
+  background-image: image-url('IMG_0371.jpg');
+  background-size: 100% 100%;
+  .card {
+    background: rgba(255,255,255,0.6);
+    .card-text {
+      height: 200px;
+    }
   }
 }
-
-
 
 /*new.html.haml*/
 
@@ -20,3 +23,4 @@
   padding: 30px 15px;
   margin: auto;
 }
+

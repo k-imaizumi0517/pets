@@ -5,4 +5,5 @@
         = posts.title
       %p.card-text
         = truncate(posts.text, length: 130)
-      = link_to "View details", "#", class: "btn btn-primary"
+      %p
+        = link_to "View details &raquo;".html_safe, "#", class: "btn btn-secondary", role: "button"
