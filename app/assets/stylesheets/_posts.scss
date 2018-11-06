@@ -1,4 +1,5 @@
 // index.html.haml
+
 .jumbotron {
   margin-bottom: 0;
   background-color: #fff;
@@ -24,3 +25,8 @@
   margin: auto;
 }
 
+// show.html.haml
+
+.min-height_card {
+  min-height: 350px;
+}
