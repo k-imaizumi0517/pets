@@ -1,0 +1,11 @@
+%main{:role => "main"}
+  .album.py-5
+    .container
+      %h2
+        = @category.name
+      .row
+        - if @posts.presence
+          = render partial: 'post', collection: @posts
+        - else
+          %p 現在投稿はありません
+

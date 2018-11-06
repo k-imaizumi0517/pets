@@ -1,0 +1,9 @@
+.col-md-4
+  .card.mb-4.shadow-sm
+    .card-body
+      %h3.card-title
+        = post.title
+      %p.card-text
+        = truncate(post.text, length: 130)
+      %p
+        = link_to "View details &raquo;".html_safe, "#", class: "btn btn-secondary", role: "button"
