@@ -4,6 +4,6 @@
       %h3.card-title
         = post.title
       %p.card-text
-        = truncate(post.text, length: 130)
+        = truncate(post.text, length: 160)
       %p
-        = link_to "View details &raquo;".html_safe, "#", class: "btn btn-secondary", role: "button"
+        = link_to "View details &raquo;".html_safe, post_path(post), class: "btn btn-secondary", role: "button"
