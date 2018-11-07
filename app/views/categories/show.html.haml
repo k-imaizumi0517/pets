@@ -8,4 +8,5 @@
           = render partial: 'post', collection: @posts
         - else
           %p 現在投稿はありません
+      = paginate(@posts)
 
