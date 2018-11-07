@@ -5,12 +5,12 @@
   background-color: #fff;
 }
 
-.album {
+.album__background {
   background-image: image-url('IMG_0371.jpg');
   background-size: 100% 100%;
-  .card {
+  .card__background {
     background: rgba(255,255,255,0.6);
-    .card-text {
+    .card-text__fix-height {
       height: 193px;
     }
   }
@@ -27,6 +27,6 @@
 
 // show.html.haml
 
-.min-height_card {
+.card__min-height {
   min-height: 350px;
 }
