@@ -29,7 +29,12 @@
               = link_to "Action", "#", class: "dropdown-item"
               = link_to "Another action", "#", class: "dropdown-item"
               = link_to "Something else here", "#", class: "dropdown-item"
-
+          %li.nav-item.dropdown
+            %a#dropdown01.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "http://example.com"} Category
+            .dropdown-menu{"aria-labelledby" => "dropdown01"}
+              = link_to "病気", "/categories/1", class: "dropdown-item"
+              = link_to "しつけ", "/categories/2", class: "dropdown-item"
+              = link_to "病院", "/categories/3", class: "dropdown-item"
           - if user_signed_in?
             %li.nav-item.dropdown
               %a#dropdown01.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "http://example.com"}= current_user.nickname
