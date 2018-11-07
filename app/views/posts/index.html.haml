@@ -12,24 +12,24 @@
       %h2 New
       .row
         - if @new_posts.presence
-          = render partial: "index", collection: @new_posts, as: "posts"
+          = render partial: "post", collection: @new_posts
         - else
           %p 現在投稿はありません
       %h2 病気
       .row
         - if @c1_posts.presence
-          = render partial: "index", collection: @c1_posts, as: "posts"
+          = render partial: "post", collection: @c1_posts
         - else
           %p 現在投稿はありません
       %h2 しつけ
       .row
         - if @c2_posts.presence
-          = render partial: "index", collection: @c2_posts, as: "posts"
+          = render partial: "post", collection: @c2_posts
         - else
           %p 現在投稿はありません
       %h2 病院
       .row
         - if @c3_posts.presence
-          = render partial: "index", collection: @c3_posts, as: "posts"
+          = render partial: "post", collection: @c3_posts
         - else
           %p 現在投稿はありません
