@@ -63,3 +63,4 @@ gem "jquery-rails"
 gem "mini_magick"
 gem "rufo"
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem "kaminari"
