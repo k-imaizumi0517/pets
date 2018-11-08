@@ -1,10 +1,10 @@
 %main{:role => "main"}
-  .album.py-5
+  .album.py-5.album__background
     .container
       .row
         .col-md-4
-          .card.mb-4.shadow-sm.min-height_card
+          .card.mb-4.shadow-sm.card__background.card__min-height
             .card-body
               %h3.card-title
                 = @post.title
-              = simple_format(@post.text)
+              = simple_format(@post.text, class: "card-text")

@@ -1,10 +1,32 @@
 %main{:role => "main"}
-  .album.py-5
+  .jumbotron
     .container
+      .row
+        .col-md-8.offset-md-2
+          .card.shadow-sm
+            = image_tag @user.image, class: "card-img-top", alt: "No Image"
+            .card-body
+              name
+              %h3.card-title
+                = @user.nickname
+              prefecture
+              - if @user.prefecture_id.present?
+                %h4.card-title
+                  = @user.prefecture_id.name
+              - else
+                %p まだ登録されていません
+              introduction
+              - if @user.introduction.present?
+                = simple_format(@user.introduction, class: "card-text")
+              - else
+                %p まだ登録されていません
+
+  .album.py-5.album__background
+    .container
+      %h2 Posts List
       .row
         - if @posts.presence
           = render partial: 'post', collection: @posts
         - else
           %p 現在投稿はありません
       = paginate(@posts)
-
