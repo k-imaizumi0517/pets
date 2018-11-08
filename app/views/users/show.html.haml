@@ -12,7 +12,7 @@
               prefecture
               - if @user.prefecture_id.present?
                 %h4.card-title
-                  = @user.prefecture_id.name
+                  = @user.prefecture.name
               - else
                 %p まだ登録されていません
               introduction
