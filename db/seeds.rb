@@ -15,3 +15,11 @@ end
 CSV.foreach("db/age.csv") do |row|
   Age.create(:number => row[0])
 end
+
+CSV.foreach("db/prefecture.csv") do |row|
+  Prefecture.create(:name => row[0])
+end
+
+CSV.foreach("db/category.csv") do |row|
+  Category.create(:name => row[0])
+end
