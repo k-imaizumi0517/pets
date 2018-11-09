@@ -22,15 +22,16 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|age|integer|null: false|
+|age_id|references|foreign_key: true|
 |introduction|text|null: false|
 |type_id|references|null: false, foreign_key: true|
 |user_id|references|null: false, foreign_key: true|
+|image|string|null: false|
 
 ### Association
 - belongs_to :user
-- has_many :images, dependent: :destroy
 - belogns_to :type
+- belongs_to :age
 
 ## typesテーブル
 
@@ -41,15 +42,14 @@
 ### Association
 - has_many :dogs
 
-## imagesテーブル
+## agesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|image|string|null: false|
-|dog_id|references|null: false, foreign_key: true|
+|num|integer|
 
 ### Association
-- belongs_to :dog
+- has_many :dogs
 
 ## commentsテーブル
 
