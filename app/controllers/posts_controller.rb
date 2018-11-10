@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show]
 
   def index
+    # @categories = Category.all
     @new_posts = Post.order("created_at DESC").limit(3)
     @c1_posts = Post.where(category_id: 1).order("created_at DESC").limit(3)
     @c2_posts = Post.where(category_id: 2).order("created_at DESC").limit(3)
