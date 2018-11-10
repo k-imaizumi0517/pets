@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181109141337) do
+ActiveRecord::Schema.define(version: 20181110142918) do
 
   create_table "ages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "number"
@@ -22,6 +22,20 @@ ActiveRecord::Schema.define(version: 20181109141337) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "dogs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name", null: false
+    t.text "introduction", null: false
+    t.string "image", null: false
+    t.bigint "age_id"
+    t.bigint "type_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["age_id"], name: "index_dogs_on_age_id"
+    t.index ["type_id"], name: "index_dogs_on_type_id"
+    t.index ["user_id"], name: "index_dogs_on_user_id"
   end
 
   create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -64,6 +78,9 @@ ActiveRecord::Schema.define(version: 20181109141337) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "dogs", "ages"
+  add_foreign_key "dogs", "types"
+  add_foreign_key "dogs", "users"
   add_foreign_key "posts", "categories"
   add_foreign_key "posts", "users"
   add_foreign_key "users", "prefectures"
