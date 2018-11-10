@@ -6,7 +6,7 @@
 |------|----|-------|
 |nickname|string|null: false|
 |introduction|text|
-|prefecture_id|integer|
+|prefecture_id|references|foreign_key: true|
 |email|string|null: false, unique: true|
 |password|string|null: false|
 |image|string|
@@ -15,7 +15,7 @@
 - has_many :dogs, dependent: :destroy
 - has_many :posts, dependent: :destroy
 - has_many :comments, dependent: :destroy
-- belongs_to :prefecture
+- belongs_to :prefecture, optional: true
 
 ## dogsテーブル
 
