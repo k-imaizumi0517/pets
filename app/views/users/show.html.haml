@@ -3,7 +3,7 @@
     .container
       .row
         .col-md-6.offset-md-3
-          .card.shadow-sm
+          .card.mb-4.shadow-sm
             = image_tag @user.image, class: "card-img-top", alt: "No Image"
             .card-body
               name
@@ -24,6 +24,12 @@
                 .btn-group
                   = link_to "Edit", edit_user_path(current_user), class: "btn btn-sm btn-outline-secondary", role: "button"
                   = link_to "Edit", edit_user_path(current_user), class: "btn btn-sm btn-outline-secondary", role: "button"
+      %h2 Dogs List
+      .row
+        - if @dogs.present?
+          = render partial: 'dog', collection: @dogs
+        - else
+          %p 現在登録はありません
 
   .album.py-5.album__background
     .container

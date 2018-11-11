@@ -1,0 +1,18 @@
+.col-md-4
+  .card.mb-4.shadow-sm
+    = image_tag dog.image, class: "card-img-top", alt: "No Image"
+    .card-body
+      name
+      %h3.card-title
+        = dog.name
+      age
+      %h4.card-title
+        = dog.age.number
+      type
+      %h4.card-title
+        = dog.type.name
+      introduction
+      %p.card-text
+        = truncate(dog.introduction, length: 25)
+      %p
+        = link_to "View details &raquo;".html_safe, "#", class: "btn btn-secondary", role: "button"
