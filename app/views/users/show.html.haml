@@ -29,7 +29,7 @@
     .container
       %h2 Posts List
       .row
-        - if @posts
+        - if @posts.present?
           = render partial: 'post', collection: @posts
         - else
           %p 現在投稿はありません

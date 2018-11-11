@@ -11,25 +11,25 @@
     .container
       %h2 New
       .row
-        - if @new_posts
+        - if @new_posts.present?
           = render partial: "post", collection: @new_posts
         - else
           %p 現在投稿はありません
       %h2 病気
       .row
-        - if @c1_posts
+        - if @c1_posts.present?
           = render partial: "post", collection: @c1_posts
         - else
           %p 現在投稿はありません
       %h2 しつけ
       .row
-        - if @c2_posts
+        - if @c2_posts.present?
           = render partial: "post", collection: @c2_posts
         - else
           %p 現在投稿はありません
       %h2 病院
       .row
-        - if @c3_posts
+        - if @c3_posts.present?
           = render partial: "post", collection: @c3_posts
         - else
           %p 現在投稿はありません
