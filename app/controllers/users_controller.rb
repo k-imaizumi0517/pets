@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @posts = @user.posts.order("created_at DESC").page(params[:page]).per(9)
+    @dogs = @user.dogs.order("created_at DESC")
   end
 
   def edit
