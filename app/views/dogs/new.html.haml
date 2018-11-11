@@ -1,0 +1,31 @@
+.text-center
+  = form_for @dog, :html => {:class => "form-signin"} do |f|
+    - if @dog.errors.any?
+      .form-group
+        %h2= "#{@dog.errors.full_messages.count}件のエラーが発生しました。"
+        %ul
+          - @dog.errors.full_messages.each do |message|
+            %li= message
+
+    %h1.h3.mb-3.font-weight-normal 登録する
+    .form-group
+      = f.label :name
+      = f.text_field :name, autofocus: true, class: 'form-control', placeholder: "例)チョコ"
+
+    .form-group
+      = f.label :image
+      = f.file_field :image, class: 'form-control-file'
+
+    .form-group
+      = f.label :age_id, "Age"
+      = f.collection_select :age_id, Age.all, :id, :number, {prompt: "age"}, {class: 'form-control'}
+
+    .form-group
+      = f.label :type_id, "Type"
+      = f.collection_select :type_id, Type.all, :id, :name, {prompt: "type"}, {class: 'form-control'}
+
+    .form-group
+      = f.label :introduction
+      = f.text_area :introduction, rows: "5", class: 'form-control', placeholder: "例)チワワ♂(15歳)です。"
+
+    = f.submit "投稿する", class: 'btn btn-lg btn-primary btn-block'
