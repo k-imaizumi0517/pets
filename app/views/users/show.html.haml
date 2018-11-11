@@ -20,7 +20,7 @@
                 = simple_format(@user.introduction, class: "card-text")
               - else
                 %p まだ登録されていません
-              - if current_user.id == @user.id
+              - if user_signed_in? && current_user.id == @user.id
                 .d-flex.justify-content-between.align-items-center
                   .btn-group
                     = link_to "Edit", edit_user_path(current_user), class: "btn btn-sm btn-outline-secondary", role: "button"
