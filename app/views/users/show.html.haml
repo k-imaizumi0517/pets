@@ -20,10 +20,11 @@
                 = simple_format(@user.introduction, class: "card-text")
               - else
                 %p まだ登録されていません
-              .d-flex.justify-content-between.align-items-center
-                .btn-group
-                  = link_to "Edit", edit_user_path(current_user), class: "btn btn-sm btn-outline-secondary", role: "button"
-                  = link_to "Edit", edit_user_path(current_user), class: "btn btn-sm btn-outline-secondary", role: "button"
+              - if current_user.id == @user.id
+                .d-flex.justify-content-between.align-items-center
+                  .btn-group
+                    = link_to "Edit", edit_user_path(current_user), class: "btn btn-sm btn-outline-secondary", role: "button"
+                    = link_to "Edit", edit_user_path(current_user), class: "btn btn-sm btn-outline-secondary", role: "button"
       %h2 Dogs List
       .row
         - if @dogs.present?
