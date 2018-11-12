@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
-  before_action :set_post, only: [:show]
+  before_action :set_post, only: [:show, :edit, :update]
 
   def index
     # @categories = Category.all
@@ -27,9 +27,17 @@ class PostsController < ApplicationController
   end
 
   def edit
+    redirect_to root_path unless current_user.id == @post.user_id
   end
 
   def update
+    if current_user.id == @post.user_id
+      if @post.update(post_params)
+        redirect_to post_path(@post), notice: '編集しました'
+      else
+        render :edit
+      end
+    end
   end
 
   def destroy

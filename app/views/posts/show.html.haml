@@ -11,3 +11,8 @@
               %h3.card-title
                 = @post.title
               = simple_format(@post.text, class: "card-text")
+
+              - if user_signed_in? && current_user.id == @post.user_id
+                .d-flex.justify-content-between.align-items-center
+                  .btn-group
+                    = link_to "Edit", edit_post_path(@post), class: "btn btn-sm btn-outline-secondary", role: "button"
