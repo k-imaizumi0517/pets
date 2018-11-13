@@ -18,7 +18,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = Post.new(title: post_params[:title], text: post_params[:text], category_id: post_params[:category_id], user_id: current_user.id)
     if @post.save
       redirect_to root_path, notice: '投稿しました'
     else
@@ -46,7 +46,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :text, :category_id).merge(user_id: current_user.id)
+    params.require(:post).permit(:title, :text, :category_id)
   end
 
   def move_to_index
@@ -57,3 +57,4 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 end
+
