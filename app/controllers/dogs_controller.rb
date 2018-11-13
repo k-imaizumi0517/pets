@@ -1,6 +1,6 @@
 class DogsController < ApplicationController
   before_action :move_to_top, except: [:show]
-  before_action :set_dog, only: [:show]
+  before_action :set_dog, only: [:show, :edit, :update]
 
   def new
     @dog = Dog.new
@@ -16,6 +16,20 @@ class DogsController < ApplicationController
   end
 
   def show
+  end
+
+  def edit
+    redirect_to :root_path unless current_user.id == @dog.user_id
+  end
+
+  def update
+    if current_user.id == @dog.user_id
+      if @dog.update(dog_params)
+        redirect_to dog_path(@dog), notice: '編集しました'
+      else
+        render :edit
+      end
+    end
   end
 
   private
