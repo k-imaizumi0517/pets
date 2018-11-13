@@ -3,14 +3,15 @@
     .container
       .row
         .col-md-4
-          .card.shadow-sm.card__background.card__min-height
+          .card.shadow-sm.card__background
             .card-body
               %p.card-text
                 by
                 = link_to "#{@post.user.nickname}", user_path(@post.user)
               %h3.card-title
                 = @post.title
-              = simple_format(@post.text, class: "card-text")
+              .card-text__min-height
+                = simple_format(@post.text)
 
               - if user_signed_in? && current_user.id == @post.user_id
                 .d-flex.justify-content-between.align-items-center
