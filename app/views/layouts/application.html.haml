@@ -43,6 +43,7 @@
               %a#dropdown01.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "http://example.com"}= current_user.nickname
               .dropdown-menu{"aria-labelledby" => "dropdown01"}
                 = link_to "投稿する", new_post_path, class: "dropdown-item"
+                = link_to "犬を登録", new_dog_path, class: "dropdown-item"
                 = link_to "My Page", user_path(current_user), class: "dropdown-item"
                 = link_to "Sign Out", destroy_user_session_path, class: "dropdown-item", method: :delete
           - else
