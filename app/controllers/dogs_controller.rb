@@ -7,7 +7,7 @@ class DogsController < ApplicationController
   end
 
   def create
-    @dog = Dog.new(dog_params)
+    @dog = Dog.new(name: dog_params[:name], image: dog_params[:image], age_id: dog_params[:age_id], type_id: dog_params[:age_id], introduction: dog_params[:introduction], user_id: current_user.id)
     if @dog.save
       redirect_to user_path(current_user), notice: '登録しました'
     else
@@ -35,7 +35,7 @@ class DogsController < ApplicationController
   private
 
   def dog_params
-    params.require(:dog).permit(:name, :image, :age_id, :type_id, :introduction).merge(user_id: current_user.id)
+    params.require(:dog).permit(:name, :image, :age_id, :type_id, :introduction)
   end
 
   def move_to_top
