@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
-  before_action :set_post, only: [:show, :edit, :update]
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
     # @categories = Category.all
@@ -41,6 +41,14 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    if current_user.id == @post.user_id
+      if @post.destroy
+        redirect_to user_path(current_user), notice: '削除しました'
+      else
+        flash.now[:alert] = '削除できませんでした'
+        render :show
+      end
+    end
   end
 
   private
