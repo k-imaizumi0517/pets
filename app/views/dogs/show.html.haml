@@ -16,7 +16,7 @@
               %h4.card-title
                 = @dog.type.name
               introduction
-              = simple_format(@dog.introduction, class: "card-text")
+              = simple_format(@dog.introduction)
               - if user_signed_in? && current_user.id == @dog.user_id
                 .d-flex.justify-content-between.align-items-center
                   .btn-group
