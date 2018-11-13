@@ -17,7 +17,7 @@
                 %p まだ登録されていません
               introduction
               - if @user.introduction.present?
-                = simple_format(@user.introduction, class: "card-text")
+                = simple_format(@user.introduction)
               - else
                 %p まだ登録されていません
               - if user_signed_in? && current_user.id == @user.id
