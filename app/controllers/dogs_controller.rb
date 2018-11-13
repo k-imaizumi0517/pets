@@ -1,6 +1,6 @@
 class DogsController < ApplicationController
   before_action :move_to_top, except: [:show]
-  before_action :set_dog, only: [:show, :edit, :update]
+  before_action :set_dog, only: [:show, :edit, :update, :destroy]
 
   def new
     @dog = Dog.new
@@ -28,6 +28,17 @@ class DogsController < ApplicationController
         redirect_to dog_path(@dog), notice: '編集しました'
       else
         render :edit
+      end
+    end
+  end
+
+  def destroy
+    if current_user.id == @dog.user_id
+      if @dog.destroy
+        redirect_to user_path(current_user), notice: '削除しました'
+      else
+        flash.now[:alert] = '削除できませんでした'
+        render :show
       end
     end
   end
