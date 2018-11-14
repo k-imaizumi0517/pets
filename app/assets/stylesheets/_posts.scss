@@ -14,7 +14,7 @@
   .card__background {
     background: rgba(255,255,255,0.6);
     .card-text__fix-height {
-      height: 193px;
+      height: 176px;
     }
   }
 }
@@ -30,10 +30,6 @@
 
 // show.html.haml
 
-.card-text__min-height-m {
-  min-height: 176px;
-}
-
-.card-text__min-height-o {
-  min-height: 207px;
+.card-text__min-height {
+  min-height: 188px;
 }
