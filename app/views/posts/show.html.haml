@@ -6,19 +6,23 @@
           .card.shadow-sm.card__background
             .card-body
               %p.card-text
-                by
+                %small.text-muted
+                  by
                 = link_to "#{@post.user.nickname}", user_path(@post.user)
               %h3.card-title
                 = @post.title
-              - if user_signed_in? && current_user.id == @post.user_id
-                .card-text__min-height-m
-                  = simple_format(@post.text)
-              - else
-                .card-text__min-height-o
-                  = simple_format(@post.text)
-
+              .card-text__min-height
+                = simple_format(@post.text)
               - if user_signed_in? && current_user.id == @post.user_id
                 .d-flex.justify-content-between.align-items-center
                   .btn-group
                     = link_to "Edit", edit_post_path(@post), class: "btn btn-sm btn-outline-secondary", role: "button"
                     = link_to "Delete", "/posts/#{@post.id}", class: "btn btn-sm btn-outline-secondary", role: "button", method: :delete
+                  %small.text-muted
+                    = simple_time(@post.created_at)
+              - else
+                .d-flex.justify-content-between.align-items-center
+                  .btn-group
+                  %small.text-muted
+                    = simple_time(@post.created_at)
+

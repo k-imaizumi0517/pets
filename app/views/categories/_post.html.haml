@@ -1,9 +1,17 @@
 .col-md-4
   .card.mb-4.shadow-sm.card__background
     .card-body
+      %p.card-text
+        %small.text-muted
+          by
+        = link_to "#{post.user.nickname}", user_path(post.user)
       %h3.card-title
         = post.title
       %p.card-text.card-text__fix-height
-        = truncate(post.text, length: 160)
-      %p
-        = link_to "View details &raquo;".html_safe, post_path(post), class: "btn btn-secondary", role: "button"
+        = truncate(post.text, length: 140)
+      .d-flex.justify-content-between.align-items-center
+        .btn-group
+          = link_to "View", post_path(post), class: "btn btn-sm btn-outline-secondary", role: "button"
+        %small.text-muted
+          = simple_time(post.created_at)
+
