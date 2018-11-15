@@ -32,7 +32,7 @@ $(function(){
       })
       .done(function(data){
         var html = buildHTML(data);
-        $('.comments').append(html);
+        $('.comments').prepend(html);
         $('.form-control').val('');
         $('.disable').prop('disabled', false);
       })
