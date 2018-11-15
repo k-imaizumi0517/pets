@@ -1,0 +1,11 @@
+.card.mb-4.shadow-sm.card__background
+  .card-body
+    %p.card-text
+      %small.text-muted
+        by
+      = link_to "#{comment.user.nickname}", user_path(comment.user)
+    = simple_format(comment.text)
+    .d-flex.justify-content-between.align-items-center
+      .btn-group
+      %small.text-muted
+        = simple_time(comment.created_at)

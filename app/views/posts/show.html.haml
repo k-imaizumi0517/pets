@@ -25,4 +25,17 @@
                   .btn-group
                   %small.text-muted
                     = simple_time(@post.created_at)
+        .col-md-8
+          - if user_signed_in?
+            .card.mb-4.shadow-sm.card__background
+              .text-center
+                = form_for [@post, @comment], html: {class: 'form-signin__comment'} do |f|
+                  %h2.h3.mb-3.font-weight-normal コメントする
+                  .form-group
+                    = f.text_area :text, autofocus: true, rows: "3", class: 'form-control', placeholder: "例)初めまして。うちの子も同じようなことがありました。"
+                  = f.submit "Send", class: 'btn btn-lg btn-primary btn-block disable'
+          .comments
+            %h2 コメント一覧
+            - if @comments.present?
+              = render partial: "comment", collection: @comments
 
