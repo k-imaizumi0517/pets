@@ -4,10 +4,10 @@ class PostsController < ApplicationController
 
   def index
     # @categories = Category.all
-    @new_posts = Post.order("created_at DESC").limit(3)
-    @c1_posts = Post.where(category_id: 1).order("created_at DESC").limit(3)
-    @c2_posts = Post.where(category_id: 2).order("created_at DESC").limit(3)
-    @c3_posts = Post.where(category_id: 3).order("created_at DESC").limit(3)
+    @new_posts = Post.includes(:user).order("created_at DESC").limit(3)
+    @c1_posts = Post.includes(:user).where(category_id: 1).order("created_at DESC").limit(3)
+    @c2_posts = Post.includes(:user).where(category_id: 2).order("created_at DESC").limit(3)
+    @c3_posts = Post.includes(:user).where(category_id: 3).order("created_at DESC").limit(3)
   end
 
   def show
