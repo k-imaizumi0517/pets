@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :move_to_top, except: [:show]
 
   def show
-    @posts = @user.posts.order("created_at DESC").page(params[:page]).per(9)
+    @posts = @user.posts.includes(:user).order("created_at DESC").page(params[:page]).per(9)
     @dogs = @user.dogs.order("created_at DESC")
   end
 
