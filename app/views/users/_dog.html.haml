@@ -14,5 +14,6 @@
       introduction
       %p.card-text
         = truncate(dog.introduction, length: 25)
-      %p
-        = link_to "View details &raquo;".html_safe, dog_path(dog), class: "btn btn-secondary", role: "button"
+      .d-flex.justify-content-between.align-items-center
+        .btn-group
+          = link_to "View", dog_path(dog), class: "btn btn-sm btn-outline-secondary", role: "button"
