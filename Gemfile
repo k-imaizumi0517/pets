@@ -64,3 +64,7 @@ gem "mini_magick"
 gem "rufo"
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "kaminari"
+
+group :production do
+  gem "unicorn"
+end
